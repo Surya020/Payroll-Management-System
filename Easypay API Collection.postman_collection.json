@@ -1,0 +1,692 @@
+{
+	"info": {
+		"_postman_id": "f8b5d393-b79a-4bcf-8af5-df3aae3b8f13",
+		"name": "Easypay API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45989537",
+		"_collection_link": "https://surya-4781227.postman.co/workspace/surya's-Workspace~474f422c-0a2d-4cb9-8eaa-256ca5445b58/collection/45989537-f8b5d393-b79a-4bcf-8af5-df3aae3b8f13?action=share&source=collection_link&creator=45989537"
+	},
+	"item": [
+		{
+			"name": "User Authentication",
+			"item": [
+				{
+					"name": "Register a User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"payroll\",\n  \"password\": \"payroll123\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/auth/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"payroll\",\n  \"password\": \"payroll123\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employee Management",
+			"item": [
+				{
+					"name": "Create Employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJBRE1JTiIsImV4cCI6MTc1MjQyMDg5MywiaWF0IjoxNzUyMzg0ODkzfQ.32tlsvCh8sMxWjA9UjJODryUTL5ctumUWH0HaxAWIHI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"sanjai\",\n  \"email\": \"sanjai@example.com\",\n  \"personalInfo\": \"developer\",\n  \"user\": { \"id\": 5 }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/employees",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Employees",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/employees",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Employee by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJBRE1JTiIsImV4cCI6MTc1MjA5NTgyNCwiaWF0IjoxNzUyMDU5ODI0fQ.nhXertjS5uy467DlDjGD7Ac8_y-A6_2buAvYbT4tc_E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/employees/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employees",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Employee",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"surya\",\n  \"email\": \"surya@example.com\",\n  \"personalInfo\": \"Manager\",\n  \"user\": { \"id\": 2 }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/employees/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employees",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJBRE1JTiIsImV4cCI6MTc1MjQyMDg5MywiaWF0IjoxNzUyMzg0ODkzfQ.32tlsvCh8sMxWjA9UjJODryUTL5ctumUWH0HaxAWIHI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/employees/4",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employees",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payroll Management",
+			"item": [
+				{
+					"name": "Create Payroll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYXlyb2xsIiwicm9sZSI6IlBBWVJPTEwiLCJleHAiOjE3NTI0NDE3NjgsImlhdCI6MTc1MjQwNTc2OH0.0G6BU00UcPa55Vv8yaxasqsy9lmERJ_jW9I8F1cZDic",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"employee\": { \"id\": 1 },\n  \"period\": \"2024-07\",\n  \"amount\": 5000,\n  \"status\": \"GENERATED\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/payrolls",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"payrolls"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Payrolls",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/payrolls",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"payrolls"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Payroll by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYXlyb2xsIiwicm9sZSI6IlBBWVJPTEwiLCJleHAiOjE3NTI0NDE3NjgsImlhdCI6MTc1MjQwNTc2OH0.0G6BU00UcPa55Vv8yaxasqsy9lmERJ_jW9I8F1cZDic",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/payrolls/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"payrolls",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Payroll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYXlyb2xsIiwicm9sZSI6IlBBWVJPTEwiLCJleHAiOjE3NTI0NDE3NjgsImlhdCI6MTc1MjQwNTc2OH0.0G6BU00UcPa55Vv8yaxasqsy9lmERJ_jW9I8F1cZDic",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"employee\": { \"id\": 1 },\n  \"period\": \"2024-08\",\n  \"amount\": 5200,\n  \"status\": \"VERIFIED\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/payrolls/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"payrolls",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Payroll",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/payrolls/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"payrolls",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Leave Management",
+			"item": [
+				{
+					"name": "Create Leave Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"employee\": { \"id\": 1 },\n  \"fromDate\": \"2024-07-01\",\n  \"toDate\": \"2024-07-05\",\n  \"status\": \"PENDING\",\n  \"approver\": { \"id\": 1 }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/leaves",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"leaves"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Leave Requests",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/leaves",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"leaves"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Leave Request by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/leaves/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"leaves",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Leave Request",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"employee\": { \"id\": 1 },\n  \"fromDate\": \"2024-07-01\",\n  \"toDate\": \"2024-07-10\",\n  \"status\": \"APPROVED\",\n  \"approver\": { \"id\": 1 }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/leaves/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"leaves",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Leave Request",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/leaves/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"leaves",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Audit Trail",
+			"item": [
+				{
+					"name": "Get All Audit Logs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/auditlogs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auditlogs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Compliance Reporting",
+			"item": [
+				{
+					"name": "Get Compliance Report",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/compliance/report",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"compliance",
+								"report"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notification Center",
+			"item": [
+				{
+					"name": "Get Notifications for a User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/notifications?userId=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"notifications"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mark Notification as Read",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/notifications/read/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"notifications",
+								"read",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}
